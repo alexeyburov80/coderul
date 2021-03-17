@@ -6,12 +6,14 @@ namespace CoderUL.Model
     {
         public DBContextElectricityConsumer(DbContextOptions<DBContextElectricityConsumer> options)
             : base(options)
-        {
-            Database.EnsureCreated();
-        }
+        {    }
 
     
         public virtual DbSet<ElectricityConsumer> ElectricityConsumers { get; set; }
 
+        void IDBContextElectricityConsumer.SaveChanges()
+        {
+            SaveChanges();
+        }
     }
 }
